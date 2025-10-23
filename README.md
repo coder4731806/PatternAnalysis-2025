@@ -125,3 +125,45 @@ NumPy arrays.
 Train and Validation split: To create the training and validation sets, the pairs of images were split 80/20, 
 with 80% used for training and 20% reserved for model validation. This ensures sufficient data is available to accurately 
 train the model and set aside a validation dataset to assess performance during training and identify potential overfitting.
+
+
+
+### Data Set
+
+dimentionality and channels 
+training and testing
+
+### Project Goals
+
+Build a Siamese CNN for melanoma similarity learning with an accuracy of at least 85%.
+
+Mitigate class imbalance through data-level balancing.
+
+Evaluate model performance on unseen pairs.
+
+Visualize feature learning and training metrics.
+
+### File Structure
+
+
+
+
+### Model Architecture
+
+The architecture follows the original Siamese CNN (Koch et al., 2015):
+
+Four convolutional blocks with Batch Normalization and MaxPooling.
+
+Flatten → Dense(4096) feature embedding layer.
+
+Distance computation via absolute difference (L1).
+
+Output: binary similarity score using a Sigmoid activation.
+
+Additional techniques:
+
+L2 regularization to prevent overfitting.
+
+Dropout layers to increase robustness.
+
+Adam optimizer with low learning rate (5e-5).
