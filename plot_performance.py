@@ -8,8 +8,7 @@ import re
 import matplotlib.pyplot as plt
 import sys
 
-# Intentional error: using sys.arg instead of sys.argv
-log_file = sys.arg[1] if len(sys.argv) > 1 else "training_log.txt"
+log_file = sys.argv[1] if len(sys.argv) > 1 else "training_log.txt"
 
 epochs, train_acc, val_acc, train_loss, val_loss = [], [], [], [], []
 
@@ -18,23 +17,20 @@ with open(log_file, "r", encoding="utf-8") as f:
         # Match: Epoch 5: train_acc=0.812, val_acc=0.789
         match = re.search(r"Epoch\s+(\d+).*train_acc=([0-9.]+).*val_acc=([0-9.]+)", line)
         if match:
-            # Intentional error: forgot to convert to int/float properly
-            epochs.append(match.group(1))
-            train_acc.append(match.group(2) * 100)
-            val_acc.append(match.group(3) * 100)
+            epochs.append(int(match.group(1)))
+            train_acc.append(float(match.group(2)) * 100)
+            val_acc.append(float(match.group(3)) * 100)
 
         # Match: Train Loss=0.123, Val Loss=0.456 (optional)
         match2 = re.search(r"Train Loss=([0-9.]+).*Val Loss=([0-9.]+)", line)
         if match2:
-            # Intentional error: swapped train/val
-            train_loss.append(float(match2.group(2)))
-            val_loss.append(float(match2.group(1)))
+            train_loss.append(float(match2.group(1)))
+            val_loss.append(float(match2.group(2)))
 
 # --- Plot Accuracy ---
 if epochs:
     plt.figure(figsize=(10, 4))
-    # Intentional error: typo in variable name
-    plt.plot(epocs, train_acc, label="Train Accuracy", marker="o")
+    plt.plot(epochs, train_acc, label="Train Accuracy", marker="o")
     plt.plot(epochs, val_acc, label="Validation Accuracy", marker="o")
     plt.xlabel("Epoch")
     plt.ylabel("Accuracy (%)")
@@ -50,7 +46,6 @@ else:
 # --- Plot Loss if available ---
 if train_loss and val_loss:
     plt.figure(figsize=(10, 4))
-    # Intentional error: missing epochs for x-axis
     plt.plot(train_loss, label="Train Loss", marker="o")
     plt.plot(val_loss, label="Validation Loss", marker="o")
     plt.xlabel("Epoch")
