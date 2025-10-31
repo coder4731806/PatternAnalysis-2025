@@ -26,7 +26,6 @@ how alike they are. In my project, they are used to detect cancerous and non-can
 compared using a contrastive loss function, which pulls similar pairs closer together and pushes dissimilar pairs 
 farther apart. This allows the network to learn a more meaningful feature representation of the input data.
 
-
 ```diff 
     ┌───────────────────────┐                               ┌───────────────────────┐
     │      Input Image 2     │                              │      Input Image 1     │
@@ -127,7 +126,6 @@ with 80% used for training and 20% reserved for model validation. This ensures s
 train the model and set aside a validation dataset to assess performance during training and identify potential overfitting.
 
 
-
 ### Data Set
 
 dimentionality and channels 
@@ -145,7 +143,40 @@ Visualize feature learning and training metrics.
 
 ### File Structure
 
+```diff
+PatternAnalysis-2025/
+│
+├── LICENSE
+├── README.md                        # Project documentation (this file)
+│
+├── dataLoader.py                    # Generates image pairs with undersampling and saves .pkl
+├── dataLoader1.py                   # Colab notebook version for experimentation
+├── dataLoader1.ipynb                # Colab notebook for interactive loading and debugging
+│
+├── siamese_network.py               # Siamese CNN architecture, model definition, training logic
+├── siamese_training_plot.png        # Accuracy/Loss visualization generated after training
+├── trainingScript.py                # Main training pipeline – loads data, trains model, saves weights
+│
+├── siamese_weights/                 # Saved model weights (.h5 files)
+│   └── siamese_weights_seed42.weights.h5
+│
+├── subset_train/                    # Subset of ISIC 2020 images used for training
+│   ├── ISIC_XXXXXX.jpg
+│   └── ...
+│
+├── test/                            # Directory for test data (optional or future use)
+│
+├── Groundtruth.csv                  # Metadata linking image names to class labels (benign/malignant)
+│
+├── siamese_isic.pkl                 # Cached full dataset of pairs before splitting
+├── siamese_isic_split.pkl           # Final balanced dataset split into train/test
+├── train_pairs.pkl                  # Alternative cached version of generated training pairs
+│
+└── (Optional future files)
+    ├── utils.py                     # Helper functions (if added later)
+    ├── plots/                       # Additional experiment plots or results
 
+```
 
 
 ### Model Architecture
@@ -167,3 +198,83 @@ L2 regularization to prevent overfitting.
 Dropout layers to increase robustness.
 
 Adam optimizer with low learning rate (5e-5).
+
+### Advantages Disadvandates Of Model
+
+
+### Data Augmentation 
+
+Resizing all images to 105×105 pixels
+
+Pixel normalization (scaling to the 0–1 range)
+
+(Planned) Data augmentation such as rotation, flipping, and zooming
+
+Note: Although grayscale conversion was considered for comparison, the final pipeline uses RGB color 
+images (3 channels) for training.Melanoma and other skin cancers are often distinguished by color variation — subtle differences in pigmentation, redness, or bluish hues.
+
+RGB preserves this information. Grayscale throws away hue and saturation, which can hide these features.
+
+Example: Two lesions might have the same texture but different brown-to-black gradients — crucial for diagnosis.
+Feature richness
+
+Color images allow the network to learn more complex combinations of features (e.g., vascularity, contrast patterns, melanin depth).
+
+### Training 
+
+Loss: Binary Crossentropy
+
+Optimizer: Adam (LR=0.00005)
+
+Batch Size: 32
+
+Epochs: 10
+
+Early Stopping: Enabled (patience=5, min_delta=0.01)
+
+Pretrained Weights: Optional continuation from last saved .h5
+
+Training command:
+```python 
+!python siamese_train.py
+```
+
+
+### Training Result
+images generated..
+
+training loss curve 
+increase image resolution size training loss jumps
+
+### Model Benchmarking
+mandotary ones 
+BenchMark - intersection over union as an evaluation metric
+
+### Run Instructions 
+
+Must have the images downloaded or the pki files
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+
+loader = DataLoader(width=105, height=105, channels=3,
+                    data_path="/content/drive/MyDrive/subset_train",
+                    csv_path="/content/drive/MyDrive/Groundtruth.csv",
+                    output_path="/content/drive/MyDrive/siamese_isic_split.pkl")
+loader.load()
+
+
+!python siamese_train.py
+
+```
+
+### Dependencies 
+
+Python 3.12+
+TensorFlow 2.17+
+NumPy
+Pandas
+Pillow
+Matplotlib
+scikit-learn
+
