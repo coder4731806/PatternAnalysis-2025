@@ -345,6 +345,7 @@ Metric                    |      Value
 📈 Improvement over Baseline |     0.2130
 ==================================================
 
+![training](Png/TrainingMetric.png)
 
 ### Run Instructions 
 
