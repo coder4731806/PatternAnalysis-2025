@@ -210,7 +210,7 @@ The two embeddings are concatenated and passed through a comparison module to pr
   - Batch Normalization 
 - Optimizer: Adam (learning rate = 5e-5)
 
-![Model Architecture](modelarchitect.png)
+![Model Architecture](Png/modelarch.png)
 
 ### Advantages Disadvandates Of Model
 
@@ -265,7 +265,7 @@ balanced—ensuring that each mini-batch contained a representative mix of both 
 This adjustment stabilized the loss descent and prevented early overfitting. The final curve shows a 
 steady downward trend with mild oscillations, reflecting a healthier convergence pattern. The remaining 
 fluctuations are expected and correspond to stochastic batch variations caused by diverse image augmentations.
-![Loss_curve.png](Loss_curve.png)
+![Loss_curve.png](Png/loss_curve.png)
 
 To address this:
 
