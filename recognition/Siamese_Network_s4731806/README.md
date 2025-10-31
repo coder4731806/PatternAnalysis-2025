@@ -196,6 +196,9 @@ Siamese_PatternRE_2025/
 Based on: G. Koch, R. Zemel & R. Salakhutdinov (2015), “Siamese Neural Networks for One-Shot Image Recognition”.
 Paper link: https://www.cs.cmu.edu/~rsalakhu/papers/oneshot1.pdf
 
+Each branch of the network uses a **ResNet-18 backbone pretrained on ImageNet** as the feature extractor, followed by fully connected embedding layers that project features into a 128-dimensional latent space.  
+The two embeddings are concatenated and passed through a comparison module to predict similarity.
+
 
 - 4 × Convolutional Blocks (Conv → BN → ReLU → MaxPool)
 - Dense(4096) feature embedding
@@ -320,6 +323,29 @@ far beyond what random guessing can achieve.
 While the accuracy is not yet at the target 85%, it provides a solid foundation for further optimization, 
 such as hyperparameter tuning, more balanced training pairs, or advanced augmentation strategies.
 
+
+
+AThe model correctly identifies whether two lesions belong to the same class ~71% of the time, a substantial improvement over random guessing (~49.6%), though below the 85% target.  I got higher precision than recall indicates the model is conservative, reducing false positives, which is important in a clinical setting. Achieved a solid discriminatory ability, confirming the network learns meaningful embeddings for lesion similarity with 73% ROC.
+
+==================================================
+                 Model Evaluation
+==================================================
+Metric                    |      Value
+--------------------------------------------------
+✅ Accuracy                |     0.7090
+🏆 F1 Score                |     0.6984
+📌 Precision               |     0.7247
+📍 Recall                  |     0.6740
+🎯 ROC AUC                 |     0.7383
+
+==================================================
+             Baseline Comparison
+==================================================
+🎯 Random Baseline Accuracy |     0.4960
+📈 Improvement over Baseline |     0.2130
+==================================================
+
+
 ### Run Instructions 
 
 Must have the images downloaded or the pki files
@@ -354,3 +380,5 @@ Moving forward, I plan to experiment with advanced augmentations and possibly de
 network architectures to improve performance toward my goal of reaching higher accuracy. 
 I also want to visualize the feature embeddings to better understand how the
 network separates benign and malignant lesions.
+
+I was unable to tweak the parameters to increase accuracy because I ran out of free Google Colab GPU resources.
