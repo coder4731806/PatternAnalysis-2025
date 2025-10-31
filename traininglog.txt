@@ -1,0 +1,49 @@
+Using device: cuda
+Epoch 2: Train Loss=0.1424, Train Acc=0.706, Val Loss=0.1542, Val Acc=0.687
+💾 Model saved at epoch 1
+⏱ 49.2s
+
+Epoch 3: Train Loss=0.0644, Train Acc=0.898, Val Loss=0.1967, Val Acc=0.709
+💾 Model saved at epoch 2
+⏱ 49.2s
+
+Epoch 4: Train Loss=0.0394, Train Acc=0.948, Val Loss=0.2216, Val Acc=0.644
+⏱ 49.4s
+
+Epoch 5: Train Loss=0.0382, Train Acc=0.952, Val Loss=0.2326, Val Acc=0.639
+⏱ 48.7s
+
+Epoch 6: Train Loss=0.0235, Train Acc=0.971, Val Loss=0.2816, Val Acc=0.624
+⏱ 49.0s
+
+Epoch 7: Train Loss=0.0179, Train Acc=0.977, Val Loss=0.3083, Val Acc=0.611
+⏱ 49.2s
+
+Epoch 8: Train Loss=0.0196, Train Acc=0.973, Val Loss=0.2984, Val Acc=0.639
+⏱ 48.5s
+
+Epoch 9: Train Loss=0.0241, Train Acc=0.971, Val Loss=0.4065, Val Acc=0.585
+⏱ 49.1s
+
+Epoch 10: Train Loss=0.0190, Train Acc=0.978, Val Loss=0.2904, Val Acc=0.663
+⏱ 49.0s
+
+Epoch 11: Train Loss=0.0152, Train Acc=0.983, Val Loss=0.3866, Val Acc=0.591
+⏱ 49.5s
+
+Epoch 12: Train Loss=0.0104, Train Acc=0.990, Val Loss=0.3180, Val Acc=0.632
+⏱ 48.9s
+
+Epoch 13: Train Loss=0.0205, Train Acc=0.976, Val Loss=0.2530, Val Acc=0.601
+⏱ 49.0s
+
+Epoch 14: Train Loss=0.0128, Train Acc=0.986, Val Loss=0.3139, Val Acc=0.634
+⏱ 49.1s
+
+Epoch 15: Train Loss=0.0156, Train Acc=0.982, Val Loss=0.3348, Val Acc=0.587
+⏱ 49.2s
+
+Epoch 16: Train Loss=0.0176, Train Acc=0.979, Val Loss=0.3193, Val Acc=0.615
+⏱ 48.6s
+
+✅ Training complete! Best val accuracy: 0.709

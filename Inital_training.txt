@@ -1,0 +1,31 @@
+Epoch 1: train_acc=0.523, val_acc=0.607\
+U 84.45\
+Epoch 2: train_acc=0.699, val_acc=0.879\
+\'a9 80.1s\
+Epoch 3: train_acc=0.778, val_acc=0.914\
+80.4s\
+Epoch 4: train_acc=0.824, val_acc=0.993\
+\'95 80.3s\
+Epoch 5: train_acc=0.875, val_acc=1.000\
+\'a9 80.9s\
+Epoch 6: train_acc=0.915, val_acc=1.000\
+81.6s\
+Epoch 7: train_acc=0.932, val_acc=0.993\
+\'95 80.3s\
+Epoch 8: train_acc=0.966, val_acc=1.000\
+@ 82.4s\
+Epoch 9: train_acc=0.949, val_acc=1.000\
+81.4s\
+Epoch 10: train_acc=1.000, val_acc=1.000\
+\'95 79.9s\
+Epoch 11: train_acc=0.966, val_acc=1.000\
+\'95 79.6s\
+Epoch 12: train_acc=0.972, val_acc=1.000\
+79.65\
+Epoch 13: train_acc=0.994, val_acc=1.000\
+\'95 79.5s\
+Epoch 14: train_acc=0.994, val_acc=1.000\
+\'ae 79.35\
+Epoch 15: train_acc=1.000, val_acc=1.000\
+\'95 79.55\
+Best val accuracy: 1.000}
