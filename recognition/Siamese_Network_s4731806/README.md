@@ -325,7 +325,7 @@ such as hyperparameter tuning, more balanced training pairs, or advanced augment
 
 
 
-AThe model correctly identifies whether two lesions belong to the same class ~71% of the time, a substantial improvement over random guessing (~49.6%), though below the 85% target.  I got higher precision than recall indicates the model is conservative, reducing false positives, which is important in a clinical setting. Achieved a solid discriminatory ability, confirming the network learns meaningful embeddings for lesion similarity with 73% ROC.
+The model correctly identifies whether two lesions belong to the same class ~71% of the time, a substantial improvement over random guessing (~49.6%), though below the 85% target.  I got higher precision than recall indicates the model is conservative, reducing false positives, which is important in a clinical setting. Achieved a solid discriminatory ability, confirming the network learns meaningful embeddings for lesion similarity with 73% ROC.
 
 ==================================================
                  Model Evaluation
