@@ -5,7 +5,7 @@ from torch.utils.data import Dataset, DataLoader
 import numpy as np
 from torchvision import transforms
 from PIL import Image
-from model_siam import SiameseNetwork
+from recognition.Siamese_Network_s4731806.modules import SiameseNetwork
 
 # -----------------------
 # Dataset loader
